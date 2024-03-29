@@ -19,4 +19,43 @@ public class TaskManager
         return true;
     }
 
+    public void CompleteTaskById(int Id)
+    {
+        //try
+        //{
+        //    foreach (Task task in Tasks)
+        //    {
+        //        if (task.Id == Id)
+        //        {
+        //            task.IsCompleted = true;
+        //        }
+        //    }
+        //}
+        //catch (Exception e)
+        //{
+
+        //}
+
+        var task = Tasks.FirstOrDefault(task => task.Id == Id);
+
+        if (task is not null)
+        {
+            task.IsCompleted = true;
+        }
+        else
+        { 
+            throw new ArgumentException("Given task" + Id + "not found.");
+        }
+
+    }
+
+    public List<Task> GetAllTasks()
+    {
+        return null;
+
+
+    }
+
 }
+
+
